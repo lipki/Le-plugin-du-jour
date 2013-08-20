@@ -28,7 +28,7 @@ if ($core->blog->settings->leplugindujour->enabled) {
 $GLOBALS['__autoload']['dcLePluginDuJour'] = dirname(__FILE__).'/inc/class.dc.leplugindujour.php';
 $GLOBALS['__autoload']['LipkiUtils'] = dirname(__FILE__).'/inc/class.lipki.utils.php'; 
 
-# Préférences du blog
+# PrÃ©fÃ©rences du blog
 $core->addBehavior('adminBlogPreferencesForm',array('LipkiUtils','adminEnabledPlugin'));
 $core->addBehavior('adminEnabledPlugin',array('dcLePluginDuJour','adminEnabledPlugin'));
 $core->addBehavior('adminBeforeBlogSettingsUpdate',array('dcLePluginDuJour','adminBeforeBlogSettingsUpdate'));

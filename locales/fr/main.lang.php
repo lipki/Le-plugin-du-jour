@@ -1,10 +1,25 @@
 <?php
 // Language: Français 
-// Module: lePluginDuJour - 0.1
-// Date: 2010-10-10 08:56:06 
-// Translated with dcTranslater - 1.5 
+// Module: lePluginDuJour - 1
+// Date: 2013-08-20 17:32:07 
+// Translated with dcTranslater - 2013.05.11 
 
-#_admin.php:43
-$GLOBALS['__l10n']['More details'] = 'En savoir plus';
+#_define.php:17
+$GLOBALS['__l10n']['To discover a new plugin per day. A switch in Settings blog. Add in your widgets, for the benefit of your visitors.'] = 'Pour découvrir un nouveau plugin par jour. A activer dans Paramètres du blog. Ajouter le dans vos widgets, pour en faire profiter vos visiteurs.';
+
+#_install.php:24
+$GLOBALS['__l10n']['leplugindujour requires Dotclear 2.6'] = 'leplugindujour nécessite Dotclear 2.6';
+
+#inc/class.dc.leplugindujour.php:80
+$GLOBALS['__l10n']['Enable'] = 'Activer';
+
+#inc/class.dc.leplugindujour.php:90
+$GLOBALS['__l10n']['To discover a new plugin per day.'] = 'Pour découvrir un nouveau plugin par jour.';
+
+#inc/class.dc.leplugindujour.php:93
+$GLOBALS['__l10n']['icon'] = 'icône';
+
+#inc/class.lipki.utils.php:21
+$GLOBALS['__l10n']['Enable plugins for this blog'] = 'Activer les plugins pour ce blog';
 
 ?>

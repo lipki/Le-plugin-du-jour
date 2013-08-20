@@ -14,8 +14,8 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */			"lePLuginDuJour",
-	/* Description*/	"Pour découvrir un nouveau plugin par jour. A activer dans Paramètres du blog. Ajouter le dans vos widgets, pour en faire profiter vos visiteurs.",
+	/* Description*/	__("To discover a new plugin per day. A switch in Settings blog. Add in your widgets, for the benefit of your visitors."),
 	/* Author */		"kévin Lepeltier [lipki]",
-	/* Version */		"0.5",
+	/* Version */		"1",
 	/* Permissions */	null
 );

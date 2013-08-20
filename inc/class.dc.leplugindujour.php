@@ -14,7 +14,7 @@
 
 class dclePluginDuJour {
 	
-	public static function lePluginDuJourDashboard($core,$icons) {
+	public static function lePluginDuJourDashboard($core,$__dashboard_items) {
 
 		if ($core->auth->isSuperAdmin()) {
 		
@@ -26,19 +26,20 @@ class dclePluginDuJour {
 			$author = $core->blog->settings->leplugindujour->author;
 			$details = $core->blog->settings->leplugindujour->details;
 			
-			$doc_links = $icons->offsetGet(0);
-			$txt_plugin = clone $icons->offsetGet(0);
-			$news = $icons->offsetGet(1);
+			$doc_links = $__dashboard_items->offsetGet(0);
+			$txt_plugin = clone $__dashboard_items->offsetGet(0);
+			$news = $__dashboard_items->offsetGet(1);
 			
-			$txt_plugin[0] ='<div class="message" style="background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 8px 6px no-repeat;">'.
-					'<h3 style="color:#cccccc;">'.$label.'</h3>'.
-					'<p><em>'.$desc.'</em></p>'.
-					'<p>'.__('by').' '.$author.'<br />'.
-					'( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p></div>';
+			$txt_plugin = new ArrayObject(array(''.
+				'<h3>Le plugin du jour</h3>'.
+				'<h4 style="padding-left: 25px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
+				'<p><em>'.__($desc).'</em></p>'.
+				'<p>'.__('by').' '.$author.'<br />'.
+				'( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p>'));
 			
-			$icons->offsetSet(0, $txt_plugin);
-			$icons->offsetSet(1, $doc_links);
-			$icons->offsetSet(2, $news);
+			$__dashboard_items->offsetSet(0, $txt_plugin);
+			$__dashboard_items->offsetSet(1, $doc_links);
+			$__dashboard_items->offsetSet(2, $news);
 			
 		}
 	}
@@ -76,8 +77,8 @@ class dclePluginDuJour {
 	public static function adminEnabledPlugin($core, $settings) {
 		echo '<p><label class="classic">'.
 		form::checkbox('leplugindujour_enabled','1',$settings->leplugindujour->enabled).
-		__('Enable Le Plugin Du Jour').'</label></p>'.
-		'<p class="form-note">'.$core->plugins->moduleInfo('lePluginDuJour','desc').'</p>';
+		__('Enable').' Le Plugin Du Jour'.'</label></p>'.
+		'<p class="form-note">'.__($core->plugins->moduleInfo('lePluginDuJour','desc')).'</p>';
 	}
 	
 	public static function adminBeforeBlogSettingsUpdate($settings) {
@@ -86,7 +87,7 @@ class dclePluginDuJour {
 	}
 
 	public static function initWidgets($widgets) {
-		$widgets->create('lePluginDuJour',__('Le Plugin Du Jour'), array('dcLePluginDuJour','widget'));
+		$widgets->create('lePluginDuJour',__('Le Plugin Du Jour'), array('dcLePluginDuJour','widget'),null, __('To discover a new plugin per day.'));
 
 		$widgets->lePluginDuJour->setting('title',__('Title:'), 'Le Plugin Du Jour','text');
 		$widgets->lePluginDuJour->setting('icon',__('icon'), true,'check');
@@ -107,12 +108,12 @@ class dclePluginDuJour {
 
 		$res =  '<div class="lePluginDuJour">';
 		if( $widget->title ) $res .= 
-			    '<h2>'.$widget->title.'</h2>';
+			    '<h2>'.__($widget->title).'</h2>';
 		$res .= '<h3 ';
 		if( $widget->icon ) $res .= 
-			    'style="background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 8px 6px no-repeat;padding-left: 27px;"';
-		$res .= '>'.$label.'</h3>'.
-			    '<p><em>'.$desc.'</em></p>'.
+			    'style="background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 0 0 no-repeat;padding-left: 25px;"';
+		$res .= '>'.__($label).'</h3>'.
+			    '<p><em>'.__($desc).'</em></p>'.
 			    '<p>'.__('by').' '.$author.'<br />'.
 			    '( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p></div>';
 
@@ -280,12 +281,8 @@ class dclePluginDuJour {
 	 */
 	public function check($force = false)
 	{
-		if (!$this->checkPlugins($force)) {
-			return false;
-		}
-		if (!$this->checkThemes($force)) {
-			return false;
-		}
+		if (!$this->checkPlugins($force)) return false;
+		if (!$this->checkThemes($force))  return false;
 		return true;
 	}
 	

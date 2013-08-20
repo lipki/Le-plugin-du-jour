@@ -1,20 +1,40 @@
 # Language: Français
-# Module: lePluginDuJour - 0.1
-# Date: 2010-10-10 08:56:06
-# Translated with translater 1.5
+# Module: lePluginDuJour - 1
+# Date: 2013-08-20 17:32:07
+# Translated with translater 2013.05.11
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: lePluginDuJour 0.1\n"
+"Project-Id-Version: lePluginDuJour 1\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2010-10-10T08:56:06+00:00\n"
-"Last-Translator: lipki\n"
+"PO-Revision-Date: 2013-08-20T17:32:07+00:00\n"
+"Last-Translator: kévin lepeltier\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: _admin.php:43
-msgid "More details"
-msgstr "En savoir plus"
+#: _define.php:17
+msgid "To discover a new plugin per day. A switch in Settings blog. Add in your widgets, for the benefit of your visitors."
+msgstr "Pour découvrir un nouveau plugin par jour. A activer dans Paramètres du blog. Ajouter le dans vos widgets, pour en faire profiter vos visiteurs."
+
+#: _install.php:24
+msgid "leplugindujour requires Dotclear 2.6"
+msgstr "leplugindujour nécessite Dotclear 2.6"
+
+#: inc/class.dc.leplugindujour.php:80
+msgid "Enable"
+msgstr "Activer"
+
+#: inc/class.dc.leplugindujour.php:90
+msgid "To discover a new plugin per day."
+msgstr "Pour découvrir un nouveau plugin par jour."
+
+#: inc/class.dc.leplugindujour.php:93
+msgid "icon"
+msgstr "icône"
+
+#: inc/class.lipki.utils.php:21
+msgid "Enable plugins for this blog"
+msgstr "Activer les plugins pour ce blog"
 
