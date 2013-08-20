@@ -20,8 +20,8 @@ if (version_compare($old_version,$new_version,'>=')) return;
 # Install or update
 try {
 	# Check DC version
-	if (version_compare(DC_VERSION,'2.2-x','<'))
-		throw new Exception('leplugindujour requires Dotclear 2.2');
+	if (version_compare(DC_VERSION,'2.5x','<'))
+		throw new Exception(__('leplugindujour requires Dotclear 2.5.x'));
 	
 	# Settings
 	$core->blog->settings->addNameSpace('leplugindujour');

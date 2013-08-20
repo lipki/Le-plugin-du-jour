@@ -18,7 +18,7 @@ class LipkiUtils {
 	
 	public static function adminEnabledPlugin($core,$settings) {
 		if( !self::$add ) {
-			echo '<fieldset><legend>'.__('Plugins Enable').'</legend>';
+			echo '<fieldset><legend>'.__('Enable plugins for this blog').'</legend>';
 			$core->callBehavior('adminEnabledPlugin',$core,$settings);
 			echo '</fieldset>';
 			self::$add = true;
