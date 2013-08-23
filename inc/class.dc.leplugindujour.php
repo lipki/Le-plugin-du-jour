@@ -32,7 +32,7 @@ class dclePluginDuJour {
 			
 			$txt_plugin = new ArrayObject(array(''.
 				'<h3>Le plugin du jour</h3>'.
-				'<h4 style="padding-left: 25px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
+				'<h4 style="height: 24px; padding-left: 28px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
 				'<p><em>'.__($desc).'</em></p>'.
 				'<p>'.__('by').' '.$author.'<br />'.
 				'( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p>'));
@@ -111,7 +111,7 @@ class dclePluginDuJour {
 			    '<h2>'.__($widget->title).'</h2>';
 		$res .= '<h3 ';
 		if( $widget->icon ) $res .= 
-			    'style="background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 0 0 no-repeat;padding-left: 25px;"';
+			    'style="height: 24px;padding-left: 28px;background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 0 0 no-repeat;"';
 		$res .= '>'.__($label).'</h3>'.
 			    '<p><em>'.__($desc).'</em></p>'.
 			    '<p>'.__('by').' '.$author.'<br />'.
