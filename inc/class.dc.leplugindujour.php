@@ -89,7 +89,7 @@ class dclePluginDuJour {
 	public static function initWidgets($widgets) {
 		$widgets->create('lePluginDuJour',__('Le Plugin Du Jour'), array('dcLePluginDuJour','widget'),null, __('To discover a new plugin per day.'));
 
-		$widgets->lePluginDuJour->setting('title',__('Title:'), 'Le Plugin Du Jour','text');
+		$widgets->lePluginDuJour->setting('title',__('Title (optional)').' :', 'Le Plugin Du Jour','text');
 		$widgets->lePluginDuJour->setting('icon',__('icon'), true,'check');
 
 	}
