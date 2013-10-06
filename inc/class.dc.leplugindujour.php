@@ -14,34 +14,36 @@
 
 class dclePluginDuJour {
 	
-	public static function lePluginDuJourDashboard($core,$__dashboard_items) {
+	public static function lePluginDuJourDashboard($core, $contents) {
 
 		if ($core->auth->isSuperAdmin()) {
 		
 			self::refresh($core);
-		
-			$plugin = $core->blog->settings->leplugindujour->plugin;
-			$label = $core->blog->settings->leplugindujour->label;
-			$desc = $core->blog->settings->leplugindujour->desc;
-			$author = $core->blog->settings->leplugindujour->author;
-			$details = $core->blog->settings->leplugindujour->details;
 			
-			$doc_links = $__dashboard_items->offsetGet(0);
-			$txt_plugin = clone $__dashboard_items->offsetGet(0);
-			$news = $__dashboard_items->offsetGet(1);
-			
-			$txt_plugin = new ArrayObject(array(''.
-				'<h3>Le plugin du jour</h3>'.
-				'<h4 style="height: 24px; padding-left: 28px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
-				'<p><em>'.__($desc).'</em></p>'.
-				'<p>'.__('by').' '.$author.'<br />'.
-				'( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p>'));
-			
-			$__dashboard_items->offsetSet(0, $txt_plugin);
-			$__dashboard_items->offsetSet(1, $doc_links);
-			$__dashboard_items->offsetSet(2, $news);
-			
+			// Add module to the contents stack
+			$contents[] = dclePluginDuJour::getInfos($core);
+	
 		}
+	}
+	
+	public static function getInfos($core) {
+	
+		$plugin = $core->blog->settings->leplugindujour->plugin;
+		$label = $core->blog->settings->leplugindujour->label;
+		$desc = $core->blog->settings->leplugindujour->desc;
+		$author = $core->blog->settings->leplugindujour->author;
+		$details = $core->blog->settings->leplugindujour->details;
+		
+		$txt_plugin = new ArrayObject(array(''.
+			'<div class="box small">'.
+			'<h3>Le plugin du jour</h3>'.
+			'<h4 style="height: 24px; padding-left: 28px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
+			'<p><em>'.__($desc).'</em></p>'.
+			'<p>'.__('by').' '.$author.'<br />'.
+			'( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p>'.
+			'</div>'));
+		
+		return $txt_plugin;
 	}
 	
 	public static function refresh($core) {
@@ -173,7 +175,7 @@ class dclePluginDuJour {
 			return false;
 		}
 		try {
-			if (($parser = daModulesReader::quickParse($this->plugins_xml,DC_TPL_CACHE,$force)) === false) {
+			if (($parser = dcStoreReader::quickParse($this->plugins_xml,DC_TPL_CACHE,$force)) === false) {
 				return false;
 			}
 			
@@ -234,7 +236,7 @@ class dclePluginDuJour {
 			return false;
 		}
 		try {
-			if (($parser = daModulesReader::quickParse($this->themes_xml,DC_TPL_CACHE,$force)) === false) {
+			if (($parser = dcStoreReader::quickParse($this->themes_xml,DC_TPL_CACHE,$force)) === false) {
 				return false;
 			}
 			
