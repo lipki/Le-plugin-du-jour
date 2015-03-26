@@ -2,7 +2,7 @@
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of lePluginDuJour, a plugin for Dotclear 2.
 # 
-# Copyright (c) 2010 lipki and contributors
+# Copyright (c) 2010-2015 lipki and contributors
 # kevin@lepeltier.info
 # 
 # Licensed under the GPL version 2.0 license.

@@ -2,7 +2,7 @@
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of lePluginDuJour, a plugin for Dotclear 2.
 # 
-# Copyright (c) 2010 lipki and contributors
+# Copyright (c) 2010-2015 lipki and contributors
 # kevin@lepeltier.info
 # 
 # Licensed under the GPL version 2.0 license.
@@ -20,8 +20,8 @@ if (version_compare($old_version,$new_version,'>=')) return;
 # Install or update
 try {
 	# Check DC version
-	if (version_compare(DC_VERSION,'2.6-x','<'))
-		throw new Exception(__('leplugindujour requires Dotclear 2.6'));
+	if (version_compare(DC_VERSION,'2.7-x','<'))
+		throw new Exception(__('leplugindujour requires Dotclear 2.7.x'));
 	
 	# Settings
 	$core->blog->settings->addNameSpace('leplugindujour');

@@ -1,15 +1,13 @@
 <?php
 # -- BEGIN LICENSE BLOCK ----------------------------------
-#
 # This file is part of lePluginDuJour, a plugin for Dotclear 2.
 # 
-# Copyright (c) 2010 lipki and contributors
+# Copyright (c) 2010-2015 lipki and contributors
 # kevin@lepeltier.info
 # 
 # Licensed under the GPL version 2.0 license.
 # A copy of this license is available in LICENSE file or at
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
 # -- END LICENSE BLOCK ------------------------------------
 
 class dclePluginDuJour {
@@ -35,7 +33,7 @@ class dclePluginDuJour {
 		$details = $core->blog->settings->leplugindujour->details;
 		
 		$txt_plugin = new ArrayObject(array(''.
-			'<div class="box small">'.
+			'<div class="box small lePluginDuJour">'.
 			'<h3>Le plugin du jour</h3>'.
 			'<h4 style="height: 24px; padding-left: 28px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
 			'<p><em>'.__($desc).'</em></p>'.
@@ -108,13 +106,13 @@ class dclePluginDuJour {
 		$author = $core->blog->settings->leplugindujour->author;
 		$details = $core->blog->settings->leplugindujour->details;
 
-		$res =  '<div class="lePluginDuJour">';
+		$res =  '<div class="widget lePluginDuJour">';
 		if( $widget->title ) $res .= 
-			    '<h2>'.__($widget->title).'</h2>';
-		$res .= '<h3 ';
+			    '<h3>'.__($widget->title).'</h3>';
+		$res .= '<h4 ';
 		if( $widget->icon ) $res .= 
 			    'style="height: 24px;padding-left: 28px;background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 0 0 no-repeat;"';
-		$res .= '>'.__($label).'</h3>'.
+		$res .= '>'.__($label).'</h4>'.
 			    '<p><em>'.__($desc).'</em></p>'.
 			    '<p>'.__('by').' '.$author.'<br />'.
 			    '( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p></div>';
