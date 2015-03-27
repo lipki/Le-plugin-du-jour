@@ -33,9 +33,9 @@ class dclePluginDuJour {
 		$details = $core->blog->settings->leplugindujour->details;
 		
 		$txt_plugin = new ArrayObject(array(''.
-			'<div class="box small lePluginDuJour">'.
+			'<div id="lePluginDuJour" class="box small">'.
 			'<h3>Le plugin du jour</h3>'.
-			'<h4 style="height: 24px; padding-left: 28px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
+			'<h4><img src="http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png" style="padding-right:8px;vertical-align:baseline;"/>'.__($label).'</h4>'.
 			'<p><em>'.__($desc).'</em></p>'.
 			'<p>'.__('by').' '.$author.'<br />'.
 			'(<a href="'.$details.'" class="learnmore modal">'.__('More details').'</a>)</p>'.
