@@ -38,7 +38,7 @@ class dclePluginDuJour {
 			'<h4 style="height: 24px; padding-left: 28px; background: url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) no-repeat scroll 0 0 transparent;">'.__($label).'</h4>'.
 			'<p><em>'.__($desc).'</em></p>'.
 			'<p>'.__('by').' '.$author.'<br />'.
-			'( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p>'.
+			'(<a href="'.$details.'" class="learnmore modal">'.__('More details').'</a>)</p>'.
 			'</div>'));
 		
 		return $txt_plugin;
@@ -90,13 +90,30 @@ class dclePluginDuJour {
 		$widgets->create('lePluginDuJour',__('Le Plugin Du Jour'), array('dcLePluginDuJour','widget'),null, __('To discover a new plugin per day.'));
 
 		$widgets->lePluginDuJour->setting('title',__('Title (optional)').' :', 'Le Plugin Du Jour','text');
-		$widgets->lePluginDuJour->setting('icon',__('icon'), true,'check');
-
+		$widgets->lePluginDuJour->setting('icon',__('Display icon'), true,'check');
+		$widgets->lePluginDuJour->setting('homeonly',__('Display on:'),0,'combo',
+			array(
+				__('All pages') => 0,
+				__('Home page only') => 1,
+				__('Except on home page') => 2
+				)
+		);
+		$widgets->lePluginDuJour->setting('content_only',__('Content only'),0,'check');
+		$widgets->lePluginDuJour->setting('class',__('CSS class:'),'');
+		$widgets->lePluginDuJour->setting('offline',__('Offline'),0,'check');
 	}
 	
 	public static function widget($widget) {
 	
 		global $core;
+
+		if ($widget->offline)
+			return;
+
+		if (($widget->homeonly == 1 && $core->url->type != 'default') ||
+			($widget->homeonly == 2 && $core->url->type == 'default')) {
+			return;
+		}
 		
 		self::refresh($core);
 		
@@ -106,20 +123,20 @@ class dclePluginDuJour {
 		$author = $core->blog->settings->leplugindujour->author;
 		$details = $core->blog->settings->leplugindujour->details;
 
-		$res =  '<div class="widget lePluginDuJour">';
-		if( $widget->title ) $res .= 
-			    '<h3>'.__($widget->title).'</h3>';
-		$res .= '<h4 ';
+		$res = '<h4 ';
 		if( $widget->icon ) $res .= 
 			    'style="height: 24px;padding-left: 28px;background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 0 0 no-repeat;"';
 		$res .= '>'.__($label).'</h4>'.
 			    '<p><em>'.__($desc).'</em></p>'.
 			    '<p>'.__('by').' '.$author.'<br />'.
-			    '( <a href="'.$details.'" class="learnmore modal">'.__('More details').'</a> )</p></div>';
+			    '(<a href="'.$details.'" class="learnmore modal">'.__('More details').'</a>)</p>';
 
-		return $res;
+		$res =
+		($widget->title ? $widget->renderTitle(html::escapeHTML($widget->title)) : '').
+		$res;
+
+		return $widget->renderDiv($widget->content_only,'lePluginDuJour '.$widget->class,'',$res);
 	}
-	
 	
 	protected $core;
 	
@@ -412,5 +429,3 @@ class dclePluginDuJour {
 		return ($c < $d) ? -1 : 1; 
 	}
 }
-
-?>

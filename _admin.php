@@ -1,4 +1,4 @@
-<?php if (!defined('DC_CONTEXT_ADMIN')) { return; }
+<?php 
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of lePluginDuJour, a plugin for Dotclear 2.
 # 
@@ -9,7 +9,7 @@
 # A copy of this license is available in LICENSE file or at
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # -- END LICENSE BLOCK ------------------------------------
-
+if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->blog->settings->addNamespace('leplugindujour');
 if ($core->blog->settings->leplugindujour->enabled) {
@@ -32,8 +32,3 @@ $GLOBALS['__autoload']['LipkiUtils'] = dirname(__FILE__).'/inc/class.lipki.utils
 $core->addBehavior('adminBlogPreferencesForm',array('LipkiUtils','adminEnabledPlugin'));
 $core->addBehavior('adminEnabledPlugin',array('dcLePluginDuJour','adminEnabledPlugin'));
 $core->addBehavior('adminBeforeBlogSettingsUpdate',array('dcLePluginDuJour','adminBeforeBlogSettingsUpdate'));
-	
-
-
-
-

@@ -16,11 +16,11 @@ msgstr ""
 
 #: _define.php:17
 msgid "To discover a new plugin per day. A switch in Settings blog. Add in your widgets, for the benefit of your visitors."
-msgstr "Pour découvrir un nouveau plugin par jour. A activer dans Paramètres du blog. Ajouter le dans vos widgets, pour en faire profiter vos visiteurs."
+msgstr "Pour découvrir un nouveau plugin par jour. A activer dans Paramètres du blog. Ajoutez-le dans vos widgets afin d'en faire profiter vos visiteurs."
 
 #: _install.php:24
-msgid "leplugindujour requires Dotclear 2.6"
-msgstr "leplugindujour nécessite Dotclear 2.6"
+msgid "leplugindujour requires Dotclear 2.7.x"
+msgstr "leplugindujour nécessite Dotclear 2.7.x"
 
 #: inc/class.dc.leplugindujour.php:80
 msgid "Enable"
@@ -31,10 +31,12 @@ msgid "To discover a new plugin per day."
 msgstr "Pour découvrir un nouveau plugin par jour."
 
 #: inc/class.dc.leplugindujour.php:93
-msgid "icon"
-msgstr "icône"
+msgid "Display icon"
+msgstr "Afficher l'icône"
 
 #: inc/class.lipki.utils.php:21
 msgid "Enable plugins for this blog"
 msgstr "Activer les plugins pour ce blog"
 
+msgid "More details"
+msgstr "Plus d'informations"

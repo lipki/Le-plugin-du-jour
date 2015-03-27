@@ -1,4 +1,4 @@
-<?php if (!defined('DC_CONTEXT_ADMIN')) { return; }
+<?php 
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of lePluginDuJour, a plugin for Dotclear 2.
 # 
@@ -9,7 +9,7 @@
 # A copy of this license is available in LICENSE file or at
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # -- END LICENSE BLOCK ------------------------------------
-
+if (!defined('DC_CONTEXT_ADMIN')) { return; }
 # Get new version
 $new_version = $core->plugins->moduleInfo('lePluginDuJour','version');
 $old_version = $core->getVersion('lePluginDuJour');
@@ -20,8 +20,8 @@ if (version_compare($old_version,$new_version,'>=')) return;
 # Install or update
 try {
 	# Check DC version
-	if (version_compare(DC_VERSION,'2.7-x','<'))
-		throw new Exception(__('leplugindujour requires Dotclear 2.7.x'));
+	if (version_compare(DC_VERSION,'2.7','<'))
+		throw new Exception(__('leplugindujour requires Dotclear 2.7'));
 	
 	# Settings
 	$core->blog->settings->addNameSpace('leplugindujour');
