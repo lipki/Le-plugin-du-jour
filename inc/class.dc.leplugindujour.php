@@ -123,10 +123,10 @@ class dclePluginDuJour {
 		$author = $core->blog->settings->leplugindujour->author;
 		$details = $core->blog->settings->leplugindujour->details;
 
-		$res = '<h4 ';
+		$res = '<h4>';
 		if( $widget->icon ) $res .= 
-			    'style="height: 24px;padding-left: 28px;background:url(http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png) 0 0 no-repeat;"';
-		$res .= '>'.__($label).'</h4>'.
+			    '<img src="http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png" style="padding-right:8px;vertical-align:baseline;"/>';
+		$res .= __($label).'</h4>'.
 			    '<p><em>'.__($desc).'</em></p>'.
 			    '<p>'.__('by').' '.$author.'<br />'.
 			    '(<a href="'.$details.'" class="learnmore modal">'.__('More details').'</a>)</p>';
