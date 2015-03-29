@@ -35,7 +35,7 @@ class dclePluginDuJour {
 		$txt_plugin = new ArrayObject(array(''.
 			'<div id="lePluginDuJour" class="box small">'.
 			'<h3>Le plugin du jour</h3>'.
-			'<h4><img src="http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png" style="padding-right:8px;vertical-align:baseline;"/>'.__($label).'</h4>'.
+			'<h4><img src="http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png" style="padding-right:8px;vertical-align:baseline;" alt=""/>'.__($label).'</h4>'.
 			'<p><em>'.__($desc).'</em></p>'.
 			'<p>'.__('by').' '.$author.'<br />'.
 			'(<a href="'.$details.'" class="learnmore modal">'.__('More details').'</a>)</p>'.
@@ -125,7 +125,7 @@ class dclePluginDuJour {
 
 		$res = '<h4>';
 		if( $widget->icon ) $res .= 
-			    '<img src="http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png" style="padding-right:8px;vertical-align:baseline;"/>';
+			    '<img src="http://media.dotaddict.org/pda/dc2/'.$plugin.'/icon.png" style="padding-right:8px;vertical-align:baseline;" alt=""/>';
 		$res .= __($label).'</h4>'.
 			    '<p><em>'.__($desc).'</em></p>'.
 			    '<p>'.__('by').' '.$author.'<br />'.
